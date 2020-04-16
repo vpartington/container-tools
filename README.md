@@ -2,7 +2,9 @@
 Docker image with tools for debugging and troubleshooting:
 * curl
 * dig
+* docker
 * host
+* kubectl
 * netcat
 * nslookup
 * ping

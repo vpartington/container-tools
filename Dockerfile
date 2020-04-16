@@ -1,8 +1,11 @@
 FROM ubuntu:18.04
 
+ENV KUBE_VERSION 1.18.0
+
 RUN apt-get update && \
     apt-get install -y \
         curl \
+        docker.io \
         dnsutils \
         gnupg \
         inetutils-ping \
@@ -11,6 +14,10 @@ RUN apt-get update && \
         traceroute \
         vim \
         wget
+
+RUN  cd /usr/local/bin \
+    && curl -O https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl \
+    && chmod 755 /usr/local/bin/kubectl
 
 RUN . /etc/os-release && \
     echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/x${NAME}_${VERSION_ID}/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list && \
