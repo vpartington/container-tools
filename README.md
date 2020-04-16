@@ -9,6 +9,7 @@ Docker image with tools for debugging and troubleshooting:
 * [skopeo](https://github.com/containers/skopeo) 
 * telnet
 * traceroute
+* vim
 * wget
 
 # Start with

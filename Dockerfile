@@ -9,6 +9,7 @@ RUN apt-get update && \
         netcat \
         telnet \
         traceroute \
+        vim \
         wget
 
 RUN . /etc/os-release && \
