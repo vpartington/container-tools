@@ -14,10 +14,10 @@ Docker image with tools for debugging and troubleshooting:
 
 # Start with
 ```
-kubectl run container-tools-$$ --image=vpartington/container-tools --rm --tty --stdin bash
+kubectl run container-tools --image=vpartington/container-tools --rm --tty --stdin bash
 ```
 
 # Or create an alias:
 ```
-alias k8sct='kubectl run container-tools-$$ --image=vpartington/container-tools --rm --tty --stdin bash'
+alias k8sct='kubectl run container-tools-$RANDOM --image=vpartington/container-tools --rm --tty --stdin bash'
 ```
