@@ -14,12 +14,17 @@ Docker image with tools for debugging and troubleshooting:
 * vim
 * wget
 
-# Start with
+# Run directly from the command line:
 ```
 kubectl run container-tools --image=vpartington/container-tools --rm --tty --stdin bash
 ```
 
-# Or create an alias:
+# Create an alias:
 ```
-alias k8sct='kubectl run container-tools-$RANDOM --image=vpartington/container-tools --rm --tty --stdin bash'
+alias k8s-ct='kubectl run container-tools-$RANDOM --image=vpartington/container-tools --rm --tty --stdin bash'
+```
+
+# Run [the script](k8s-ct-on-node) to run container-tools on a specific node
+```
+k8s-ct-on-node <nodename>
 ```

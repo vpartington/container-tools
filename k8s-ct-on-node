@@ -1,0 +1,42 @@
+#!/bin/bash
+
+CONTAINER=container-tools-$RANDOM
+IMAGE=vpartington/container-tools
+
+IFS='' OVERRIDES=$(cat <<EOF
+{
+    "metadata": {
+        "labels": {
+            "diditwork": "itdid"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "stdin": true,
+                "tty": true,
+                "args": [ "bash" ],
+                "name": "$CONTAINER",
+                "image": "$IMAGE",
+                "volumeMounts": [
+                    {
+                        "mountPath": "/var/run/docker.sock",
+                        "name": "dockersocket"
+                    }
+                ]
+            }
+        ],
+        "volumes": [
+            {
+                "name": "dockersocket",
+                "hostPath": {
+                    "path": "/var/run/docker.sock"
+                }
+            }
+        ]
+    }
+}
+EOF
+)
+
+kubectl run $CONTAINER --image=$IMAGE --rm --stdin --tty bash --overrides=$OVERRIDES
