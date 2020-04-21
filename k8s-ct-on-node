@@ -1,23 +1,31 @@
-#!/bin/bash
+#!/bin/bash -e
 
-CONTAINER=container-tools-$RANDOM
-IMAGE=vpartington/container-tools
+container=container-tools-$RANDOM
+image=vpartington/container-tools
+red="\\033[0;31m"
 
-IFS='' OVERRIDES=$(cat <<EOF
+while getopts "h:" opt; do
+  case "$opt" in
+  h)  hostname=$OPTARG ;;
+  \?) echo "Unknown option: -$OPTARG" >&2; exit 1;;
+  :) echo "Missing option argument for -$OPTARG" >&2; exit 1;;
+  *) echo "Unimplemented option: -$OPTARG" >&2; exit 1;;
+  esac
+done
+shift $((OPTIND -1))
+
+[ -z $hostname ] && echo -e "${red}Provide the hostname of the node with the -h flag" && exit 1
+
+IFS='' overrides=$(cat <<EOF
 {
-    "metadata": {
-        "labels": {
-            "diditwork": "itdid"
-        }
-    },
     "spec": {
         "containers": [
             {
                 "stdin": true,
                 "tty": true,
                 "args": [ "bash" ],
-                "name": "$CONTAINER",
-                "image": "$IMAGE",
+                "name": "$container",
+                "image": "$image",
                 "volumeMounts": [
                     {
                         "mountPath": "/var/run/docker.sock",
@@ -33,10 +41,14 @@ IFS='' OVERRIDES=$(cat <<EOF
                     "path": "/var/run/docker.sock"
                 }
             }
-        ]
+        ],
+        "nodeSelector":
+        {
+            "kubernetes.io/hostname": "$hostname"
+        }
     }
 }
 EOF
 )
 
-kubectl run $CONTAINER --image=$IMAGE --rm --stdin --tty bash --overrides=$OVERRIDES
+kubectl run $container --image=$image --rm --stdin --tty bash --overrides=$overrides
