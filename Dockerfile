@@ -9,7 +9,7 @@ RUN apt-get update && \
         dnsutils \
         gnupg \
         inetutils-ping \
-        netcat \
+        netcat-openbsd \
         telnet \
         traceroute \
         vim \

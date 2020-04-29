@@ -5,7 +5,7 @@ Docker image with tools for debugging and troubleshooting:
 * docker
 * host
 * kubectl
-* netcat
+* netcat (OpenBSD version)
 * nslookup
 * ping
 * [skopeo](https://github.com/containers/skopeo) 
