@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV KUBE_VERSION 1.18.0
+ENV KUBE_VERSION 1.20.0
 
 RUN apt-get update && \
     apt-get install -y \
