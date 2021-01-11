@@ -9,6 +9,7 @@ RUN apt-get update && \
         dnsutils \
         gnupg \
         inetutils-ping \
+        jq \
         netcat-openbsd \
         telnet \
         traceroute \
