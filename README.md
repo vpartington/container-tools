@@ -4,6 +4,7 @@ Docker image with tools for debugging and troubleshooting:
 * dig
 * docker
 * host
+* jq
 * kubectl
 * netcat (OpenBSD version)
 * nslookup
@@ -13,6 +14,7 @@ Docker image with tools for debugging and troubleshooting:
 * traceroute
 * vim
 * wget
+* yq
 
 # Run directly from the command line:
 
