@@ -4,8 +4,9 @@ Docker image with tools for debugging and troubleshooting:
 * dig
 * docker
 * host
-* jq
+* [jq](https://stedolan.github.io/jq/)
 * kubectl
+* [mc](https://docs.min.io/docs/minio-client-complete-guide.html)
 * netcat (OpenBSD version)
 * nslookup
 * ping
@@ -14,7 +15,7 @@ Docker image with tools for debugging and troubleshooting:
 * traceroute
 * vim
 * wget
-* yq
+* [yq](https://github.com/mikefarah/yq)
 
 # Run directly from the command line:
 
