@@ -1,19 +1,22 @@
 # container-tools
 Docker image with tools for debugging and troubleshooting:
-* curl
+* [anchore-cli](https://github.com/anchore/anchore-cli)
+* [curl](https://curl.se/)
 * dig
-* docker
+* [docker](https://docs.docker.com/engine/reference/commandline/cli/)
+* [helm](https://helm.sh/)
 * host
 * [jq](https://stedolan.github.io/jq/)
-* kubectl
+* [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 * [mc](https://docs.min.io/docs/minio-client-complete-guide.html)
 * netcat (OpenBSD version)
 * nslookup
 * ping
-* [skopeo](https://github.com/containers/skopeo) 
+* [skopeo](https://github.com/containers/skopeo)
+* sudo
 * telnet
 * traceroute
-* vim
+* [vim](https://www.vim.org/)
 * wget
 * [yq](https://github.com/mikefarah/yq)
 
